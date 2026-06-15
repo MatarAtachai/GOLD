@@ -66,18 +66,14 @@
 </head>
 <body>
 
-    <!-- ฝั่งซ้าย: กราฟ -->
     <div class="chart-container" id="chartSection">
         <div id="tv_chart_container" style="height: 100%;"></div>
     </div>
 
-    <!-- ฝั่งขวา: ข้อมูลดิบ -->
     <div class="data-container" id="dataSection">
         
-        <!-- ปุ่ม Stealth Mode ซ่อนกราฟ -->
         <button class="btn btn-stealth" id="btnToggleChart" onclick="toggleChart()">🙈 ซ่อนกราฟ (Stealth Mode)</button>
 
-        <!-- ปุ่มดึงข้อมูล AI -->
         <button class="btn" id="btnAnalyze" onclick="fetchData()">⚡ กดเพื่อดึงข้อมูล AI ล่าสุด</button>
         
         <div id="signalDisplay" class="signal-box">
@@ -134,11 +130,11 @@
             btn.innerHTML = 'กำลังดึงข้อมูล...';
             
             try {
-                // ==========================================
-                // ⚠️ อย่าลืมแก้ลิงก์ Colab ของคุณตรงนี้นะครับ
+                // ==========================================================
+                // ⚠️ ลบลิงก์เดิมทิ้ง แล้วเอาลิงก์ใหม่จาก Colab มาใส่ในนี้ ⚠️
+                // ==========================================================
                 const ai_url = "https://xxxxxx.loca.lt/api/signal"; 
-                // ==========================================
-
+                
                 const response = await fetch(ai_url);
                 const data = await response.json();
 
@@ -171,7 +167,7 @@
                     alert("Error: " + data.message);
                 }
             } catch (error) {
-                alert("การเชื่อมต่อล้มเหลว ตรวจสอบลิงก์ Colab อีกครั้ง");
+                alert("การเชื่อมต่อล้มเหลว! (อย่าลืมกดเปิดลิงก์และคลิกปุ่ม Click to Continue ก่อนใช้งานนะครับ)");
             }
 
             btn.innerHTML = '⚡ กดเพื่อดึงข้อมูล AI ล่าสุด';
